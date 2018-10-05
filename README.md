@@ -4,7 +4,7 @@
 
 
 To run, clone this repo and with JDK8 set to JAVA_HOME environment variable, execute:
- `./gradlew matcherRun`
+ `sh gradlew matcherRun`
  
  By default, the results are written to `results.txt` file in the working directory.
  
