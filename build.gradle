@@ -1,0 +1,29 @@
+apply plugin: 'java-library'
+
+
+group 'com.samyem'
+version '1.0-SNAPSHOT'
+
+repositories {
+        mavenCentral()
+}
+
+task matcherRun(type: JavaExec) {
+  classpath sourceSets.main.runtimeClasspath
+  main = "challenge.ProductMatcher"
+  args "products.txt", "listings.txt", "results.txt"
+}
+
+ext {
+    luceneVersion = '7.5.0'
+    jacksonVersion = '2.9.7'
+}
+
+dependencies {
+	compile "org.apache.lucene:lucene-core:${luceneVersion}"
+	compile "org.apache.lucene:lucene-analyzers-common:${luceneVersion}"
+	compile "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+	compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+	compile "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+	compile "org.apache.commons:commons-lang3:3.8.1"
+}
