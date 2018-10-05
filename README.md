@@ -3,7 +3,7 @@
 
 
 
-To run, checkout this repo and with JDK8 set to JAVA_HOME environment, execute:
+To run, clone this repo and with JDK8 set to JAVA_HOME environment, execute:
  `./gradlew matcherRun`
  
 
