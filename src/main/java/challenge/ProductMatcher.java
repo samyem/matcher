@@ -29,8 +29,8 @@ import challenge.IndexService.SearchResult;
  *
  */
 public class ProductMatcher {
-	private final Pattern keywordUnderScorePattern = Pattern.compile("\"[\\s|\\_]\"");
-	private final Pattern keywordDashPattern = Pattern.compile("\"[\\s|\\-]\"");
+	private final Pattern keywordUnderScorePattern = Pattern.compile("[\\s|\\_]");
+	private final Pattern keywordDashPattern = Pattern.compile("[\\s|\\-]");
 	private final Pattern titleSplitPattern = Pattern.compile("[^A-Za-z0-9\\.\\-]");
 
 	private final IndexService index;
@@ -49,13 +49,12 @@ public class ProductMatcher {
 		indexProducts(productsFilePath);
 		index.initSearch();
 
-		long start = System.currentTimeMillis();
-
 		System.out.println(productCounter + " products indexed");
 
+		long start = System.currentTimeMillis();
 		matchListings(listingsFilePath);
-
 		long span = System.currentTimeMillis() - start;
+
 		System.out.println("Match completed in " + span + "ms. Output written to " + resultsFilePath);
 	}
 
